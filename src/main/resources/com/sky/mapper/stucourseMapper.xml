@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sky.mapper.StucourseMapper">
+
+    <insert id="saveStucourse" parameterType="com.sky.entity.Stucourse" >
+           insert into stu_stucourse (student_id,course_id,score) values (#{studentId},#{courseId},#{score})
+    </insert>
+    <select id="findStucourse" resultType="com.sky.entity.Stucourse" parameterType="int">
+        select * from stu_stucourse where student_id = #{studentId}
+    </select>
+    <select id="findall" resultType="com.sky.entity.Stucourse">
+        select * from stu_stucourse
+    </select>
+    <delete id="deleteStucourse" parameterType="int">
+        delete from stu_stucourse where student_id = #{studentId} and course_id = #{courseId}
+    </delete>
+</mapper>
